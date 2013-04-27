@@ -1,5 +1,6 @@
 TEMPLATE = lib
-TARGET = voicecall-ofono-plugin
+equals(QT_MAJOR_VERSION, 4): TARGET = voicecall-ofono-plugin
+equals(QT_MAJOR_VERSION, 5): TARGET = voicecall-ofono-plugin-qt5
 
 QT = core dbus
 CONFIG += plugin link_pkgconfig
@@ -7,7 +8,8 @@ CONFIG += plugin link_pkgconfig
 #DEFINES += WANT_TRACE
 
 INCLUDEPATH += ../../../lib/src
-LIBS += -L../../../lib/src -lvoicecall
+equals(QT_MAJOR_VERSION, 4): LIBS += -L../../../lib/src -lvoicecall
+equals(QT_MAJOR_VERSION, 5): LIBS += -L../../../lib/src -lvoicecall-qt5
 
 PKGCONFIG += ofono-qt
 

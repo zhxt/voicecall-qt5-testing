@@ -1,6 +1,9 @@
 TEMPLATE = lib
-TARGET = voicecall
-QT = core dbus gui declarative
+equals(QT_MAJOR_VERSION, 4): TARGET = voicecall
+equals(QT_MAJOR_VERSION, 5): TARGET = voicecall-qt5
+QT = core dbus gui
+equals(QT_MAJOR_VERSION, 4): QT += declarative
+equals(QT_MAJOR_VERSION, 5): QT += qml quick 
 CONFIG += qt plugin
 
 TARGET = $$qtLibraryTarget($$TARGET)

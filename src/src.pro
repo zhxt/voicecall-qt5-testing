@@ -1,6 +1,7 @@
 include(../qtsingleapplication/src/qtsinglecoreapplication.pri)
 
-TARGET = voicecall-manager
+equals(QT_MAJOR_VERSION, 4): TARGET = voicecall-manager
+equals(QT_MAJOR_VERSION, 5): TARGET = voicecall-manager-qt5
 TEMPLATE = app
 QT = core dbus
 CONFIG += mobility link_pkgconfig
@@ -8,7 +9,8 @@ CONFIG += mobility link_pkgconfig
 #DEFINES += WANT_TRACE
 
 INCLUDEPATH += ../lib/src
-LIBS += -L../lib/src -lvoicecall
+equals(QT_MAJOR_VERSION, 4): LIBS += -L../lib/src -lvoicecall
+equals(QT_MAJOR_VERSION, 5): LIBS += -L../lib/src -lvoicecall-qt5
 
 PKGCONFIG += libresourceqt1
 

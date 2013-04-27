@@ -1,5 +1,6 @@
 TEMPLATE = lib
-TARGET = voicecall
+equals(QT_MAJOR_VERSION, 4): TARGET = voicecall
+equals(QT_MAJOR_VERSION, 5): TARGET = voicecall-qt5
 
 QT = core dbus
 CONFIG += qdbus

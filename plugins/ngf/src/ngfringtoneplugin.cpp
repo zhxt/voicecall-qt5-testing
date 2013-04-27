@@ -200,4 +200,6 @@ void NgfRingtonePlugin::onEventPaused(quint32 eventId)
     TRACE
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(ngf-ringtone-plugin, NgfRingtonePlugin)
+#endif

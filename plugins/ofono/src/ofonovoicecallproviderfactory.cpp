@@ -166,4 +166,6 @@ void OfonoVoiceCallProviderFactory::onModemRemoved(const QString &modemPath)
     provider->deleteLater();
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(voicecall-ofono-plugin, OfonoVoiceCallProviderFactory)
+#endif

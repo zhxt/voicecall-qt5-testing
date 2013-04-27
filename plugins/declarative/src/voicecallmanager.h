@@ -6,7 +6,12 @@
 #include "voicecallmodel.h"
 #include "voicecallprovidermodel.h"
 
+#if QT_VERSION > QT_VERSION_CHECK(5, 0, 0)
+#include <QQuickItem>
+#define QDeclarativeItem QQuickItem
+#else
 #include <QDeclarativeItem>
+#endif
 
 #include <QDBusInterface>
 #include <QDBusPendingCallWatcher>
