@@ -158,4 +158,6 @@ void ToneGeneratorPlugin::stopTone()
     d->interface->call("StopTone");
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(voicecall-tonegend-plugin, ToneGeneratorPlugin)
+#endif

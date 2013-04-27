@@ -324,4 +324,6 @@ void ResourcePolicyRoutingPlugin::onVoiceCallsChanged()
     }
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(resource-policy-routing-plugin, ResourcePolicyRoutingPlugin)
+#endif

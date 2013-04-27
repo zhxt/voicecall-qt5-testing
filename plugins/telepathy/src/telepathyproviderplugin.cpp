@@ -274,4 +274,6 @@ void TelepathyProviderPlugin::onAccountInvalidated(Tp::DBusProxy *proxy, const Q
     this->deregisterAccountProvider(account);
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 Q_EXPORT_PLUGIN2(voicecall-telepathy-plugin, TelepathyProviderPlugin)
+#endif

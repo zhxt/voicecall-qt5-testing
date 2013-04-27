@@ -8,9 +8,11 @@ CONFIG += mobility link_pkgconfig
 #DEFINES += WANT_TRACE
 
 INCLUDEPATH += ../lib/src
-LIBS += -L../lib/src -lvoicecall
+equals(QT_MAJOR_VERSION, 4): LIBS += -L../lib/src -lvoicecall
+equals(QT_MAJOR_VERSION, 5): LIBS += -L../lib/src -lvoicecall-qt5
 
-PKGCONFIG += libresourceqt1
+equals(QT_MAJOR_VERSION, 4): PKGCONFIG += libresourceqt1
+equals(QT_MAJOR_VERSION, 5): PKGCONFIG += libresourceqt5
 
 CONFIG += qdbus # for dbus plugin.
 MOBILITY = multimedia # for basic ringtone plugin.

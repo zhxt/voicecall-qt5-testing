@@ -36,8 +36,15 @@
 #include "common.h"
 #include "declarativeview.h"
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+#include <QQmlEngine>
+#include <QQmlContext>
+#define QDeclarativeEngine QQmlEngine
+#define QDeclarativeContext QQmlContext
+#else
 #include <QDeclarativeEngine>
 #include <QDeclarativeContext>
+#endif
 
 #include <QtSingleApplication>
 

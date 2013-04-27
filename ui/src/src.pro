@@ -2,7 +2,9 @@ include(../../qtsingleapplication/src/qtsingleapplication.pri)
 
 TARGET = voicecall-ui
 TEMPLATE = app
-QT = core network gui declarative
+QT = core network gui 
+equals(QT_MAJOR_VERSION, 4): QT += declarative
+equals(QT_MAJOR_VERSION, 5): QT += qml quik
 
 #DEFINES += WANT_TRACE
 

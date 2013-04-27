@@ -25,7 +25,8 @@ SOURCES += \
 DEFINES += PLUGIN_NAME=\\\"voicecall-ofono-plugin\\\"
 DEFINES += PLUGIN_VERSION=\\\"0.0.0.1\\\"
 
-target.path = /usr/lib/voicecall/plugins
+equals(QT_MAJOR_VERSION, 4): target.path = /usr/lib/voicecall/plugins
+equals(QT_MAJOR_VERSION, 5): target.path = /usr/lib/voicecall-qt5/plugins
 
 INSTALLS += target
 

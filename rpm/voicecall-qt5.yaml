@@ -1,0 +1,111 @@
+Name: voicecall-qt5
+Summary: Voice Call Suite
+Version: 0.4.0
+Release: 1
+Group: Communications/Telephony and IM
+License: Apache License, Version 2.0
+URL: http://github.com/nemomobile/voicecall
+Sources:
+    - "%{name}-%{version}.tar.gz"
+Description: Next Generation Dialer Application for Nemo Mobile
+
+PkgConfigBR:
+    - Qt5OpenGL
+    - Qt5Quick
+    - Qt5Qml
+    - Qt5Multimedia
+    - libresourceqt5
+    - libpulse-mainloop-glib
+    - ofono-qt5
+    - TelepathyQt4 >= 0.9.3
+    - TelepathyQt4Farstream
+    - ngf-qt5
+Configure: none
+Builder: make
+
+SubPackages:
+    - Name: core
+      Summary: Core voicecall service and libraries
+      Group: Communications/Telephony and IM
+      Description: Core voicecall service executable, core plugins and library
+      Requires:
+          - voicecall-libs == %{version}-%{release}
+          - telepathy-ring
+      Files:
+          - "%{_bindir}/voicecall-manager"
+          - "%{_libdir}/voicecall-qt5/plugins/libvoicecall-playback-manager-plugin.so"
+          - "%{_libdir}/voicecall-qt5/plugins/libvoicecall-telepathy-plugin.so"
+          - "%{_libdir}/voicecall-qt5/plugins/libvoicecall-ngf-plugin.so"
+          - "%config %{_sysconfdir}/xdg/autostart/voicecall-manager.desktop"
+          - "%{_libdir}/systemd/user/voicecall-manager.service"
+
+
+    - Name: devel
+      Summary: Voicecall development package
+      Group: Communications/Telephony and IM
+      Description: Voicecall development libraries and headers
+      Requires:
+          - voicecall-libs == %{version}-%{release}
+      Files:
+          - "%{_libdir}/libvoicecall-qt5.so"
+
+    - Name: plugin-ofono
+      Summary: Voicecall ofono plugin provider
+      Group: Communications/Telephony and IM
+      Description: Voicecall manager plugin for using ofono to make and receive calls.
+      Requires:
+          - voicecall-core == %{version}-%{release}
+      Files:
+          - "%{_libdir}/voicecall-qt5/plugins/libvoicecall-ofono-plugin.so"
+
+    - Name: libs
+      Summary: Core voicecall libraries
+      Group: Communications/Telephony and IM
+      Description: Core libraries of voicecall 
+      Files:
+          - "%{_libdir}/libvoicecall-qt5.so.1"
+          - "%{_libdir}/libvoicecall-qt5.so.1.0"
+          - "%{_libdir}/libvoicecall-qt5.so.1.0.0"
+          - "%{_libdir}/qt5/imports/stage/rubyx/voicecall/libvoicecall-qt5.so"
+          - "%{_libdir}/qt5/imports/stage/rubyx/voicecall/qmldir"
+
+    - Name: ui-reference
+      Summary: Voicecall reference QML user interface
+      Group: Communications/Telephony and IM
+      Description: Voicecall reference QML phone application user interface
+      Requires:
+          - voicecall-core == %{version}-%{release}
+          - tone-generator
+          - commhistory-daemon
+          - libcommhistory-declarative
+      Provides:
+          - meego-handset-dialer >= 0.2.4
+          - voicecall == %{version}-%{release}
+      Obsoletes:
+          - meego-handset-dialer < 0.2.4
+          - voicecall <= 0.1.5
+      Files:
+          - "%{_bindir}/voicecall-ui"
+          - "%{_datadir}/voicecall-ui/qml"
+          - "%{_datadir}/applications/voicecall-ui.desktop"
+          - "%config %{_sysconfdir}/xdg/autostart/voicecall-ui-prestart.desktop"
+          - "%{_libdir}/systemd/user/voicecall-ui-prestart.service"
+
+    - Name: plugin-resource-policy
+      Summary: Voicecall plugin for resource policy audio routing
+      Group: Communications/Telephony and IM
+      Description: Voicecall manager plugin for direct resource policy based audio routing and stream control.
+      Requires:
+          - voicecall-core == %{version}-%{release}
+      Files:
+          - "%{_libdir}/voicecall-qt5/plugins/libvoicecall-resource-policy-routing-plugin.so"
+
+    - Name: plugin-pulseaudio
+      Summary: Voicecall plugin for pulseaudio interaction
+      Group: Communications/Telephony and IM
+      Description: Voicecall manager plugin for direct pulseaudio audio routing and stream control.
+      Requires:
+          - voicecall-core == %{version}-%{release}
+      Files:
+          - "%{_libdir}/voicecall-qt5/plugins/libvoicecall-pulseaudio-plugin.so"
+          - "%config %{_sysconfdir}/voicecall/modes.ini"

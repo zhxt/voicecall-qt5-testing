@@ -1,6 +1,8 @@
 TEMPLATE = lib
 TARGET = voicecall
-QT = core dbus gui declarative
+QT = core dbus gui
+equals(QT_MAJOR_VERSION, 4): QT += declarative
+equals(QT_MAJOR_VERSION, 5): QT += qml quick 
 CONFIG += qt plugin
 
 TARGET = $$qtLibraryTarget($$TARGET)
@@ -40,7 +42,8 @@ symbian {
     maemo5 | !isEmpty(MEEGO_VERSION_MAJOR) {
         installPath = /usr/lib/qt4/imports/$$replace(uri, \\., /)
     } else {
-        installPath = $$[QT_INSTALL_IMPORTS]/$$replace(uri, \\., /)
+        equals(QT_MAJOR_VERSION, 4): installPath = $$[QT_INSTALL_IMPORTS]/$$replace(uri, \\., /)
+        equals(QT_MAJOR_VERSION, 5): installPath = $$[QT_INSTALL_QML]/$$replace(uri, \\., /)
     }
     qmldir.path = $$installPath
     target.path = $$installPath
