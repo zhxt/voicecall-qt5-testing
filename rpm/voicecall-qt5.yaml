@@ -10,7 +10,6 @@ Sources:
 Description: Next Generation Dialer Application for Nemo Mobile
 
 PkgConfigBR:
-    - Qt5OpenGL
     - Qt5Quick
     - Qt5Qml
     - Qt5Multimedia

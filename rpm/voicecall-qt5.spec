@@ -16,7 +16,6 @@ License:    Apache License, Version 2.0
 URL:        http://github.com/nemomobile/voicecall
 Source0:    %{name}-%{version}.tar.gz
 Source100:  voicecall-qt5.yaml
-BuildRequires:  pkgconfig(Qt5OpenGL)
 BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Multimedia)
