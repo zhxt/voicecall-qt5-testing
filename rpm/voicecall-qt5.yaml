@@ -21,7 +21,7 @@ PkgConfigBR:
     - TelepathyQt4Farstream
     - ngf-qt5
 Configure: none
-Builder: make
+Builder: qmake5
 
 SubPackages:
     - Name: core

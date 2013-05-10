@@ -113,6 +113,7 @@ Voicecall manager plugin for direct pulseaudio audio routing and stream control.
 # >> build pre
 # << build pre
 
+%qmake5 
 
 make %{?jobs:-j%jobs}
 
@@ -123,7 +124,7 @@ make %{?jobs:-j%jobs}
 rm -rf %{buildroot}
 # >> install pre
 # << install pre
-%make_install
+%qmake_install
 
 # >> install post
 # << install post
