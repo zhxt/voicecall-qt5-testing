@@ -111,6 +111,7 @@ Voicecall manager plugin for direct pulseaudio audio routing and stream control.
 
 %build
 # >> build pre
+export QT_SELECT=5
 # << build pre
 
 %qmake5 
