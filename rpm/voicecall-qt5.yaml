@@ -13,6 +13,7 @@ PkgConfigBR:
     - Qt5OpenGL
     - Qt5Quick
     - Qt5Qml
+    - Qt5DBus
     - Qt5Multimedia
     - libresourceqt5
     - libpulse-mainloop-glib
