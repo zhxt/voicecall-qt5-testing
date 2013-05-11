@@ -63,8 +63,8 @@ void VoiceCallHandler::initialize(bool notifyError)
     {
         success = true;
         success &= static_cast<bool>(QObject::connect(d->interface, SIGNAL(error(QString)), SIGNAL(error(QString))));
-        success &= static_cast<bool>(Object::connect(d->interface, SIGNAL(statusChanged()), SIGNAL(statusChanged())));
-        success &= static_cast<bool>(Object::connect(d->interface, SIGNAL(lineIdChanged()), SIGNAL(lineIdChanged())));
+        success &= static_cast<bool>(QObject::connect(d->interface, SIGNAL(statusChanged()), SIGNAL(statusChanged())));
+        success &= static_cast<bool>(QObject::connect(d->interface, SIGNAL(lineIdChanged()), SIGNAL(lineIdChanged())));
         success &= static_cast<bool>(QObject::connect(d->interface, SIGNAL(durationChanged()), SIGNAL(durationChanged())));
         success &= static_cast<bool>(QObject::connect(d->interface, SIGNAL(startedAtChanged()), SIGNAL(startedAtChanged())));
         success &= static_cast<bool>(QObject::connect(d->interface, SIGNAL(emergencyChanged()), SIGNAL(emergencyChanged())));
