@@ -71,14 +71,14 @@ void VoiceCallManager::initialize(bool notifyError)
     if(d->interface->isValid())
     {
         success = true;
-        success &= QObject::connect(d->interface, SIGNAL(error(QString)), SIGNAL(error(QString)));
-        success &= QObject::connect(d->interface, SIGNAL(voiceCallsChanged()), SLOT(onVoiceCallsChanged()));
-        success &= QObject::connect(d->interface, SIGNAL(providersChanged()), SLOT(onProvidersChanged()));
-        success &= QObject::connect(d->interface, SIGNAL(activeVoiceCallChanged()), SLOT(onActiveVoiceCallChanged()));
-        success &= QObject::connect(d->interface, SIGNAL(audioModeChanged()), SIGNAL(audioModeChanged()));
-        success &= QObject::connect(d->interface, SIGNAL(audioRoutedChanged()), SIGNAL(audioRoutedChanged()));
-        success &= QObject::connect(d->interface, SIGNAL(microphoneMutedChanged()), SIGNAL(microphoneMutedChanged()));
-        success &= QObject::connect(d->interface, SIGNAL(speakerMutedChanged()), SIGNAL(speakerMutedChanged()));
+        success &= static_cast<bool>(QObject::connect(d->interface, SIGNAL(error(QString)), SIGNAL(error(QString))));
+        success &= static_cast<bool>(QObject::connect(d->interface, SIGNAL(voiceCallsChanged()), SLOT(onVoiceCallsChanged())));
+        success &= static_cast<bool>(QObject::connect(d->interface, SIGNAL(providersChanged()), SLOT(onProvidersChanged())));
+        success &= static_cast<bool>(QObject::connect(d->interface, SIGNAL(activeVoiceCallChanged()), SLOT(onActiveVoiceCallChanged())));
+        success &= static_cast<bool>(QObject::connect(d->interface, SIGNAL(audioModeChanged()), SIGNAL(audioModeChanged())));
+        success &= static_cast<bool>(QObject::connect(d->interface, SIGNAL(audioRoutedChanged()), SIGNAL(audioRoutedChanged())));
+        success &= static_cast<bool>(QObject::connect(d->interface, SIGNAL(microphoneMutedChanged()), SIGNAL(microphoneMutedChanged())));
+        success &= static_cast<bool>(QObject::connect(d->interface, SIGNAL(speakerMutedChanged()), SIGNAL(speakerMutedChanged())));
 
         this->onActiveVoiceCallChanged();
     }
