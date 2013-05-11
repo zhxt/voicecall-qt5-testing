@@ -76,10 +76,17 @@ public Q_SLOTS:
 protected Q_SLOTS:
     void onVoiceCallsChanged();
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+protected:
+    QHash<int, QByteArray> roleNames() const;
+#endif
+
 private:
     class VoiceCallModelPrivate *d_ptr;
 
     Q_DECLARE_PRIVATE(VoiceCallModel)
+
+    QHash<int,QByteArray> roles;
 };
 
 #endif // VOICECALLMODEL_H
