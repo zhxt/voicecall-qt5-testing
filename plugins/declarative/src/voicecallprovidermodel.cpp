@@ -71,11 +71,13 @@ VoiceCallProviderModel::VoiceCallProviderModel(VoiceCallManager *manager)
 {
     TRACE
     Q_D(VoiceCallProviderModel);
-    QHash<int,QByteArray> roles;
     roles.insert(ROLE_ID, "id");
     roles.insert(ROLE_TYPE, "type");
     roles.insert(ROLE_LABEL, "name");
+
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     this->setRoleNames(roles);
+#endif
 
     QObject::connect(d->manager, SIGNAL(providersChanged()), SLOT(onProvidersChanged()));
 
@@ -88,6 +90,13 @@ VoiceCallProviderModel::~VoiceCallProviderModel()
     Q_D(VoiceCallProviderModel);
     delete d;
 }
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+QHash<int, QByteArray> VoiceCallProviderModel::roleNames() const
+{
+    return roles;
+}
+#endif
 
 int VoiceCallProviderModel::count() const
 {

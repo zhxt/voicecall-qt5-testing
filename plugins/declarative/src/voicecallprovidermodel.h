@@ -71,10 +71,17 @@ public Q_SLOTS:
 protected Q_SLOTS:
     void onProvidersChanged();
 
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+protected:
+    QHash<int, QByteArray> roleNames() const;
+#endif
+
 private:
     class VoiceCallProviderModelPrivate *d_ptr;
 
     Q_DECLARE_PRIVATE(VoiceCallProviderModel)
+   
+    QHash<int,QByteArray> roles;
 };
 
 #endif // VOICECALLPROVIDERMODEL_H
