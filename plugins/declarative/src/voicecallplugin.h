@@ -4,8 +4,8 @@
 #include <qglobal.h>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
-#include <QmlExtensionPlugin>
-#define QDeclarativeExtensionPlugin QmlExtensionPlugin
+#include <QQmlExtensionPlugin>
+#define QDeclarativeExtensionPlugin QQmlExtensionPlugin
 #else
 #include <QtDeclarative/QDeclarativeExtensionPlugin>
 #endif
