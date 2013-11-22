@@ -2,7 +2,8 @@ include(../qtsingleapplication/src/qtsinglecoreapplication.pri)
 
 TARGET = voicecall-manager
 TEMPLATE = app
-QT = core dbus
+QT = core dbus multimedia
+
 CONFIG += mobility link_pkgconfig
 
 #DEFINES += WANT_TRACE

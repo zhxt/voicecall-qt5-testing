@@ -4,7 +4,7 @@ TARGET = voicecall-ui
 TEMPLATE = app
 QT = core network gui 
 equals(QT_MAJOR_VERSION, 4): QT += declarative
-equals(QT_MAJOR_VERSION, 5): QT += qml quik
+equals(QT_MAJOR_VERSION, 5): QT += qml quick
 
 #DEFINES += WANT_TRACE
 

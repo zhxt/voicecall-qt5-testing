@@ -7,7 +7,7 @@ CONFIG += plugin link_pkgconfig
 #DEFINES += WANT_TRACE
 
 INCLUDEPATH += ../../../lib/src
-LIBS += -L../../../lib/src -lvoicecall
+LIBS += -L../../../lib/src -lvoicecall-qt5
 
 PKGCONFIG += ofono-qt
 

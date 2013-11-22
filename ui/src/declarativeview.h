@@ -38,7 +38,7 @@
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
 #include <QQuickView>
-#define QDeclarativveView QQuickView
+#define QDeclarativeView QQuickView
 #else
 #include <QDeclarativeView>
 #endif
